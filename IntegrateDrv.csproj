@@ -1,0 +1,146 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9229C10D-736A-467A-B69D-AE2E961703AC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IntegrateDrv</RootNamespace>
+    <AssemblyName>IntegrateDrv</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClasses\INIFile.Packed.cs" />
+    <Compile Include="BaseClasses\HiveINIFile.cs" />
+    <Compile Include="BaseClasses\PNPDriverIntegratorBase.cs" />
+    <Compile Include="DeviceService\DeviceServiceUtils.cs" />
+    <Compile Include="Interfaces\ISystemRegistryHive.cs" />
+    <Compile Include="BaseClasses\ServiceINIFile.cs" />
+    <Compile Include="BasicPackStreamContext.cs" />
+    <Compile Include="Compression.Cab\CabEngine.cs" />
+    <Compile Include="Compression.Cab\CabException.cs" />
+    <Compile Include="Compression.Cab\CabFileInfo.cs" />
+    <Compile Include="Compression.Cab\CabInfo.cs" />
+    <Compile Include="Compression.Cab\CabPacker.cs" />
+    <Compile Include="Compression.Cab\CabUnpacker.cs" />
+    <Compile Include="Compression.Cab\CabWorker.cs" />
+    <Compile Include="Compression.Cab\HandleManager.cs" />
+    <Compile Include="Compression.Cab\NativeMethods.cs" />
+    <Compile Include="Compression\ArchiveException.cs" />
+    <Compile Include="Compression\ArchiveFileInfo.cs" />
+    <Compile Include="Compression\ArchiveFileStreamContext.cs" />
+    <Compile Include="Compression\ArchiveInfo.cs" />
+    <Compile Include="Compression\ArchiveProgressEventArgs.cs" />
+    <Compile Include="Compression\ArchiveProgressType.cs" />
+    <Compile Include="Compression\BasicUnpackStreamContext.cs" />
+    <Compile Include="Compression\CargoStream.cs" />
+    <Compile Include="Compression\CompressionEngine.cs" />
+    <Compile Include="Compression\CompressionLevel.cs" />
+    <Compile Include="Compression\DuplicateStream.cs" />
+    <Compile Include="Compression\IPackStreamContext.cs" />
+    <Compile Include="Compression\IUnpackStreamContext.cs" />
+    <Compile Include="Compression\OffsetStream.cs" />
+    <Compile Include="Compression\SafeNativeMethods.cs" />
+    <Compile Include="ExportedRegistry\ExportedRegistry.cs" />
+    <Compile Include="Integrators\PNPDriverGUIModeIntegrator.cs" />
+    <Compile Include="Integrators\KernelAndHalIntegrator.cs" />
+    <Compile Include="HardwareDetectors\PNPExportedHardwareDetector.cs" />
+    <Compile Include="HardwareDetectors\PNPLocalHardwareDetector.cs" />
+    <Compile Include="Integrators\TCPIPIntegrator.cs" />
+    <Compile Include="Integrators\PNPDriverIntegrator.cs" />
+    <Compile Include="Integrators\PNPDriverIntegratorUtils.cs" />
+    <Compile Include="Integrators\USBBootIntegrator.cs" />
+    <Compile Include="DeviceService\NetworkDeviceService.cs" />
+    <Compile Include="PNPDriver\PNPDriverDirectory.cs" />
+    <Compile Include="PNPDriver\PNPDriverINFFile.cs" />
+    <Compile Include="DeviceService\DeviceService.cs" />
+    <Compile Include="ProgramUtils.cs" />
+    <Compile Include="ExportedRegistry\ExportedRegistryKey.cs" />
+    <Compile Include="Utilities\CommandLineParser.cs" />
+    <Compile Include="Utilities\Generics\KeyValuePairList.cs" />
+    <Compile Include="Utilities\PortableExecutable\BinaryReaderUtils.cs" />
+    <Compile Include="Utilities\PortableExecutable\BinaryWriterUtils.cs" />
+    <Compile Include="Utilities\PortableExecutable\CoffHeader.cs" />
+    <Compile Include="Utilities\PortableExecutable\DosHeader.cs" />
+    <Compile Include="Utilities\PortableExecutable\ImportDirectory.cs" />
+    <Compile Include="Utilities\PortableExecutable\PEHeader.cs" />
+    <Compile Include="Utilities\PortableExecutable\PESectionHeader.cs" />
+    <Compile Include="Utilities\PortableExecutable\PortableExecutableInfo.cs" />
+    <Compile Include="Utilities\PortableExecutable\PortableExecutableUtils.cs" />
+    <Compile Include="Utilities\Registry\RegistryKeyUtils.cs" />
+    <Compile Include="Utilities\Security\SecurityUtils.cs" />
+    <Compile Include="Utilities\Strings\QuotedStringUtils.cs" />
+    <Compile Include="WindowsDirectory\HalINFFile.cs" />
+    <Compile Include="WindowsDirectory\NetPacketSchedulerAdapterINFFile.cs" />
+    <Compile Include="WindowsDirectory\NetPacketSchedulerINFFile.cs" />
+    <Compile Include="WindowsDirectory\DosNetINFFile.cs" />
+    <Compile Include="WindowsDirectory\HiveSoftware32INFFile.cs" />
+    <Compile Include="WindowsDirectory\HiveSoftwareINFFile.cs" />
+    <Compile Include="WindowsDirectory\HiveSystemINFFile.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseClasses\INIFile.cs" />
+    <Compile Include="WindowsDirectory\NetGPCINFFile.cs" />
+    <Compile Include="WindowsDirectory\NetTCPIPINFFile.cs" />
+    <Compile Include="WindowsDirectory\SetupRegistryHiveFile.cs" />
+    <Compile Include="TextModeDriver\TextModeDriverSetupINIFile.cs" />
+    <Compile Include="TextModeDriver\TextModeDriverDirectory.cs" />
+    <Compile Include="Integrators\TextModeDriverIntegrator.cs" />
+    <Compile Include="WindowsDirectory\TextSetupINFFile.cs" />
+    <Compile Include="Utilities\Conversion\Conversion.SimpleTypes.cs" />
+    <Compile Include="Utilities\FileSystem\FileSystemUtils.cs" />
+    <Compile Include="Utilities\Registry\RegistryUtils.cs" />
+    <Compile Include="Utilities\Strings\StringUtils.cs" />
+    <Compile Include="WindowsDirectory\TextSetupINFFile.Load.cs" />
+    <Compile Include="WindowsDirectory\UsbINFFile.cs" />
+    <Compile Include="WindowsDirectory\UsbPortINFFile.cs" />
+    <Compile Include="WindowsDirectory\UsbStorageClassDriverINFFile.cs" />
+    <Compile Include="WindowsDirectory\WindowsInstallation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Compression.Cab\Errors.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Compression.Cab\Errors.resources">
+      <LogicalName>Microsoft.Deployment.Compression.Cab.Errors.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RevisionHistory.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
