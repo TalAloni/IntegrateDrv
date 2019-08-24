@@ -23,7 +23,7 @@ namespace Utilities
         private uint m_peHeaderOffset;
 
         private ImportDirectory m_importDirectory;
-             
+
         public PortableExecutableInfo(string path)
         {
             FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
@@ -116,6 +116,19 @@ namespace Utilities
             writer.Seek((int)checksumOffset, SeekOrigin.Begin);
             writer.Write(checksum);
             writer.Flush();
+        }
+
+        public int FindSectionIndex(string name)
+        {
+            for (int i = 0; i < m_sectionHeaders.Count; i++)
+            {
+                if (String.Equals(m_sectionHeaders[i].Name, name))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
 
         public PESectionHeader FindSectionByRVA(uint rva)

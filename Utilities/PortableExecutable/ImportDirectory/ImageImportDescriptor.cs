@@ -18,6 +18,15 @@ namespace Utilities
         public uint NameRVA;
         public uint ImportAddressTableRVA;
 
+        public void Write(BinaryWriter writer)
+        {
+            writer.Write(ImportLookupTableRVA);
+            writer.Write(TimeDateStamp);
+            writer.Write(ForwardChain);
+            writer.Write(NameRVA);
+            writer.Write(ImportAddressTableRVA);
+        }
+
         public static ImageImportDescriptor Parse(BinaryReader reader)
         {
             ImageImportDescriptor descriptor = new ImageImportDescriptor();
@@ -27,15 +36,6 @@ namespace Utilities
             descriptor.NameRVA = reader.ReadUInt32();
             descriptor.ImportAddressTableRVA = reader.ReadUInt32();
             return descriptor;
-        }
-
-        public void Write(BinaryWriter writer)
-        {
-            writer.Write(ImportLookupTableRVA);
-            writer.Write(TimeDateStamp);
-            writer.Write(ForwardChain);
-            writer.Write(NameRVA);
-            writer.Write(ImportAddressTableRVA);
         }
     }
 }

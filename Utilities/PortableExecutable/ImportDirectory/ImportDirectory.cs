@@ -16,19 +16,6 @@ namespace Utilities
     {
         public List<ImageImportDescriptor> Descriptors = new List<ImageImportDescriptor>();
 
-        public static ImportDirectory Parse(BinaryReader reader)
-        {
-            ImportDirectory importDir = new ImportDirectory();
-            ImageImportDescriptor desc = ImageImportDescriptor.Parse(reader);
-            while (desc.NameRVA != 0)
-            {
-                importDir.Descriptors.Add(desc);
-                desc = ImageImportDescriptor.Parse(reader);
-            }
-            
-            return importDir;
-        }
-
         public void Write(BinaryWriter writer)
         {
             foreach (ImageImportDescriptor descriptor in Descriptors)
@@ -36,6 +23,19 @@ namespace Utilities
                 descriptor.Write(writer);
             }
             new ImageImportDescriptor().Write(writer);
+        }
+
+        public static ImportDirectory Parse(BinaryReader reader)
+        {
+            ImportDirectory importDirectory = new ImportDirectory();
+            ImageImportDescriptor descriptor = ImageImportDescriptor.Parse(reader);
+            while (descriptor.NameRVA != 0)
+            {
+                importDirectory.Descriptors.Add(descriptor);
+                descriptor = ImageImportDescriptor.Parse(reader);
+            }
+
+            return importDirectory;
         }
     }
 }
