@@ -1,17 +1,13 @@
-//---------------------------------------------------------------------
-// Authors: jachymko
-//
-// Description: Class which describes a Portable Executable header.
-//
-// Creation Date: Dec 24, 2006
-//---------------------------------------------------------------------
-// Adapted by Tal Aloni, 2011.09.09
-
+/* Copyright (C) 2011 Tal Aloni <tal.aloni.il@gmail.com>. All rights reserved.
+ * Based on work by jachymko, Dec 24, 2006.
+ * 
+ * You can redistribute this program and/or modify it under the terms of
+ * the GNU Lesser Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ */
 using System;
 using System.Collections.Generic;
 using System.IO;
-
-//using Pscx.Runtime.Serialization.Binary;
 
 namespace Utilities
 {
@@ -181,86 +177,5 @@ namespace Utilities
                 DataDirectories[i].Write(writer);
             }
         }
-    }
-
-    public enum DataDirectoryName : int
-    {
-        Export,
-        Import,
-        Resource,
-        Exception,
-        Security,
-        BaseRelocationTable,
-        Debug,
-        ArchitectureData,
-        GlobalPointer,
-        ThreadLocalStorage,
-        LoadConfiguration,
-        BoundImport,
-        ImportAddressTable,
-        DelayLoadImport,
-        CorHeader,
-    }
-
-    public sealed class PEDataDirectory
-    {
-        public uint VirtualAddress;
-        public uint Size;
-
-        public static PEDataDirectory Parse(BinaryReader reader)
-        {
-            PEDataDirectory dir = new PEDataDirectory();
-            dir.VirtualAddress = reader.ReadUInt32();
-            dir.Size = reader.ReadUInt32();
-            return dir;
-        }
-
-        public void Write(BinaryWriter writer)
-        {
-            writer.Write(VirtualAddress);
-            writer.Write(Size);
-        }
-
-        public override string ToString()
-        {
-            return string.Format("PEDataDirectory, RVA=0x{0:x}, Size=0x{1:x}",
-                VirtualAddress, Size);
-        }
-    }
-
-    public enum PEHeaderType : ushort
-    {
-        PE32 = 0x10b,
-        PE64 = 0x20b,
-        RomImage = 0x107,
-    }
-
-    public enum PESubsystem : ushort
-    {
-        Unknown = 0,
-        Native = 1,
-        Windows = 2,
-        WindowsConsole = 3,
-        OS2 = 5,
-        Posix = 7,
-        WindowsCE = 9,
-        EfiApplication = 10,
-        EfiBootServiceDriver = 11,
-        EfiRuntimeDriver = 12,
-        EfiRomImage = 13,
-        Xbox = 14,
-        WindowsBootApplication = 16,
-    }
-
-    public enum PEDllCharacteristics : ushort
-    {
-        DynamicBase = 0x0040,
-        ForceIntegrity = 0x0080,
-        NXCompatible = 0x0100,
-        NoIsolation = 0x0200,
-        NoSeh = 0x0400,
-        NoBind = 0x0800,
-        WdmDriver = 0x2000,
-        TerminalServicesAware = 0x8000,
     }
 }

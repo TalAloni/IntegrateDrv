@@ -1,27 +1,24 @@
-//---------------------------------------------------------------------
-// Authors: jachymko
-//
-// Description: Class which describes a COFF header.
-//
-// Creation Date: Dec 24, 2006
-//---------------------------------------------------------------------
-// Adapted by Tal Aloni, 2011.09.09
-
+/* Copyright (C) 2011 Tal Aloni <tal.aloni.il@gmail.com>. All rights reserved.
+ * Based on work by jachymko, Dec 24, 2006.
+ * 
+ * You can redistribute this program and/or modify it under the terms of
+ * the GNU Lesser Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ */
 using System;
 using System.IO;
 
 namespace Utilities
 {
-    //using Runtime.Serialization.Binary;
-
-    // Coff - Common Object File Format
+    /// <summary>
+    /// Coff - Common Object File Format
+    /// </summary>
     public sealed class CoffHeader
     {
         const uint NTSignature = 0x4550; // PE00
 
         public CoffMachine Machine;
         public ushort NumberOfSections;
-        //public DateTime TimeDateStamp;
         public uint TimeDateStamp;
         public uint PointerToSymbolTable;
         public uint NumberOfSymbols;
@@ -58,33 +55,5 @@ namespace Utilities
             writer.Write(SizeOfOptionalHeader);
             writer.Write((ushort)Characteristics);
         }
-    }
-
-    public enum CoffMachine : ushort
-    {
-        Unknown = 0x0000,
-        I386 = 0x014c,
-        IA64 = 0x0200,
-        Amd64 = 0x8664,
-    }
-
-    [Flags]
-    public enum CoffFlags : ushort
-    {
-        RelocsStripped = 0x0001,
-        ExecutableImage = 0x0002,
-        LineNumsStripped = 0x0004,
-        LocalSymsStripped = 0x0008,
-        AggresiveWsTrim = 0x0010,
-        LargeAddressAware = 0x0020,
-        BytesReversedLow = 0x0080,
-        Machine32Bit = 0x0100,
-        DebugStripped = 0x0200,
-        RemovableRunFromSwap = 0x0400,
-        NetworkRunFromSwap = 0x0800,
-        System = 0x1000,
-        Dll = 0x2000,
-        UniProcOnly = 0x4000,
-        BytesReversedHi = 0x8000,
     }
 }

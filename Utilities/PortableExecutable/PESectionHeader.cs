@@ -1,12 +1,10 @@
-//---------------------------------------------------------------------
-// Authors: jachymko
-//
-// Description: Class which describes a DOS header.
-//
-// Creation Date: Dec 24, 2006
-//---------------------------------------------------------------------
-// Adapted by Tal Aloni, 2011.09.09
-
+/* Copyright (C) 2011 Tal Aloni <tal.aloni.il@gmail.com>. All rights reserved.
+ * Based on work by jachymko, Dec 24, 2006.
+ * 
+ * You can redistribute this program and/or modify it under the terms of
+ * the GNU Lesser Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ */
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -61,24 +59,5 @@ namespace Utilities
         {
             return Name;
         }
-
-    }
-
-    [Flags]
-    public enum SectionFlags : uint
-    {
-        TlsIndexScaled = 0x00000001,
-        Code = 0x00000020,
-        InitializedData = 0x00000040,
-        UninitializedData = 0x00000080,
-        DeferSpecExc = 0x00004000,
-        NRelocOvfl = 0x01000000,
-        Discardable = 0x02000000,
-        NotCached = 0x04000000,
-        NotPaged = 0x08000000,
-        Shared = 0x10000000,
-        Execute = 0x20000000,
-        Read = 0x40000000,
-        Write = 0x80000000,
     }
 }

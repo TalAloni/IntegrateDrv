@@ -85,7 +85,16 @@
     <Compile Include="Utilities\PortableExecutable\BinaryWriterUtils.cs" />
     <Compile Include="Utilities\PortableExecutable\CoffHeader.cs" />
     <Compile Include="Utilities\PortableExecutable\DosHeader.cs" />
-    <Compile Include="Utilities\PortableExecutable\ImportDirectory.cs" />
+    <Compile Include="Utilities\PortableExecutable\Enums\CoffHeader\CoffFlags.cs" />
+    <Compile Include="Utilities\PortableExecutable\Enums\CoffHeader\CoffMachine.cs" />
+    <Compile Include="Utilities\PortableExecutable\Enums\DataDirectoryName.cs" />
+    <Compile Include="Utilities\PortableExecutable\Enums\PEHeader\PEDllCharacteristics.cs" />
+    <Compile Include="Utilities\PortableExecutable\Enums\PEHeader\PEHeaderType.cs" />
+    <Compile Include="Utilities\PortableExecutable\Enums\PEHeader\PESubsystem.cs" />
+    <Compile Include="Utilities\PortableExecutable\Enums\SectionFlags.cs" />
+    <Compile Include="Utilities\PortableExecutable\ImportDirectory\ImageImportDescriptor.cs" />
+    <Compile Include="Utilities\PortableExecutable\ImportDirectory\ImportDirectory.cs" />
+    <Compile Include="Utilities\PortableExecutable\PEDataDirectory.cs" />
     <Compile Include="Utilities\PortableExecutable\PEHeader.cs" />
     <Compile Include="Utilities\PortableExecutable\PESectionHeader.cs" />
     <Compile Include="Utilities\PortableExecutable\PortableExecutableInfo.cs" />
