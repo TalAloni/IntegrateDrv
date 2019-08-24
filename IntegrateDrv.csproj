@@ -99,6 +99,10 @@
     <Compile Include="Utilities\PortableExecutable\PESectionHeader.cs" />
     <Compile Include="Utilities\PortableExecutable\PortableExecutableInfo.cs" />
     <Compile Include="Utilities\PortableExecutable\PortableExecutableUtils.cs" />
+    <Compile Include="Utilities\PortableExecutable\ResourceDirectory\ResourceDataEntry.cs" />
+    <Compile Include="Utilities\PortableExecutable\ResourceDirectory\ResourceDirectoryEntry.cs" />
+    <Compile Include="Utilities\PortableExecutable\ResourceDirectory\ResourceDirectoryTable.cs" />
+    <Compile Include="Utilities\PortableExecutable\ResourceDirectory\ResourceDirectoryTableHeader.cs" />
     <Compile Include="Utilities\Registry\RegistryKeyUtils.cs" />
     <Compile Include="Utilities\Security\SecurityUtils.cs" />
     <Compile Include="Utilities\Strings\QuotedStringUtils.cs" />
