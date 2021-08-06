@@ -20,6 +20,7 @@ you can use nLite to create a working directory, and then use IntegrateDrv to in
 How this program works:
 =======================
 What the program does, is to integrate the drivers to the temporary Windows Installation directories (the '$WIN_NT$.~BT' and '$WINT_NT$.~LS' directories that are created when running winnt32), so after you run winnt32 [usually from WinPE] and before you reboot to start the text-mode phase of installation, you run IntegrateDRV, integrate the AHCI / Storage drivers, and voila, windows setup now detects your AHCI controller! (this is the fastest method to integrate text-mode drivers that I know of).  
+
 The software was tested with Intel \ AMD \ nVidia AHCI drivers and with Windows XP \ Server 2003 (both 32 and 64 bit editions),
 However, if an issue arises with this utility, let me know and I'll try my best to resolve it (my email is shown in the program help screen)
 
